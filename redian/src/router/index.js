@@ -17,7 +17,6 @@ import pagethreed from '@/components/pagethree/pagethreed.vue'
 
 import pagefour from '@/components/pagefour/pagefour.vue'
 
-
 Vue.use(Router)
 
 export default new Router({

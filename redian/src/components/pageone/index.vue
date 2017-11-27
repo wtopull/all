@@ -53,9 +53,9 @@ export default{
 	.content{
 		background:url(../../assets/image/index_bg.jpg) no-repeat left -30px;
 		background-size: 100% 100%;
-		height: 368px;
+		height: 380px;
 		width:100%;
-		padding-top: 80px;
+		padding-top:56px;
 	}
 	
 	.content .conttop ,.content .contbtm{

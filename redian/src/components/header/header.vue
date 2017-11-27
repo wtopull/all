@@ -1,12 +1,28 @@
 <template>
 	<div class="header">
 		<div class="log"></div>
-		<div class="loading"><button class="butl">登陆</button><button class="butr">注册</button>
+		<div class="loading">
+			<button class="butl">登陆</button>
+			<button class="butr">注册</button>
 		</div>
+		<landing v-show="b">111</landing>
 	</div>
 </template>
 <script>
-	
+import landing from '@/components/landing.vue'
+export default {
+  data() {
+    return {
+      title: {
+      	a: false,
+      	b: true
+      }
+    }
+  },
+  components:{
+    landing
+  }
+}
 </script>
 <style>
 	.header{
