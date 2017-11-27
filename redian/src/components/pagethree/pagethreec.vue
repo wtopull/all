@@ -2,16 +2,26 @@
 	<div class="pagethreec">
 		<div class="pagethreeBox">
 			<ul class="pagethreecUl">
-				<router-link to="" tag="li"><img src="../../assets/image/disc_1.png" height="138" width="108" alt=""></router-link>
+				<router-link to="" tag="li"><img  @click="showona()" src="../../assets/image/disc_1.png" height="138" width="108" alt=""></router-link>
+				<promotionh v-show="ona"></promotionh>
 			</ul>
 		</div>
 	</div>
 </template>
 <script>
+import promotionh from './promotions/promotion_1.vue';
 export default{
 	data() {
 		return {
-			msg: '3333333333'
+			ona:false
+		}
+	},
+	components:{
+	    promotionh
+	},
+	methods:{
+		showona:function() {
+			this.ona = !this.ona
 		}
 	}
 }
@@ -23,7 +33,7 @@ export default{
 	}
 	.pagethreeBox{
 		width: 100%;
-		height:450px;
+		height:430px;
 		overflow-x:hidden;
 	}
 	.pagethreecUl{

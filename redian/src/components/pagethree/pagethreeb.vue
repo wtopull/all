@@ -2,17 +2,33 @@
 	<div class="pagethreeb">
 		<div class="pagethreeBox">
 			<ul class="pagethreebUl">
-				<router-link to="" tag="li"><img src="../../assets/image/disc_2.png" height="138" width="108" alt=""></router-link>
-				<router-link to="" tag="li"><img src="../../assets/image/disc_3.png" height="138" width="108" alt=""></router-link>
+				<router-link to="" tag="li"><img @click="showonb()" src="../../assets/image/disc_2.png" height="138" width="108" alt=""></router-link>
+				<promotionj v-show="onb"></promotionj>
+				<router-link to="" tag="li"><img @click="showonc()" src="../../assets/image/disc_3.png" height="138" width="108" alt=""></router-link>
+				<promotionk v-show="onc"></promotionk>
 			</ul>
 		</div>
 	</div>
 </template>
 <script>
+import promotionj from './promotions/promotion_2.vue';
+import promotionk from './promotions/promotion_3.vue';
 export default{
 	data() {
 		return {
-			msg: '3333333333'
+			onb:false,
+			onc:false
+		}
+	},
+	components:{
+	    promotionj,promotionk
+	},
+	methods:{
+		showonb:function() {
+			this.onb = !this.onb
+		},
+		showonc:function() {
+			this.onc = !this.onc
 		}
 	}
 }
@@ -24,7 +40,7 @@ export default{
 	}
 	.pagethreeBox{
 		width: 100%;
-		height:450px;
+		height:430px;
 		overflow-x:hidden;
 	}
 	.pagethreebUl{

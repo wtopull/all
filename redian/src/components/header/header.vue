@@ -2,14 +2,12 @@
 	<div class="header">
 		<div class="log"></div>
 		<div class="loading">
-			<button class="butl">登陆</button>
-			<button class="butr">注册</button>
+			<router-link to="/landing" tag="button" class="butl">登陆</router-link>
+			<router-link to="/register" tag="button" class="butr">注册</router-link>
 		</div>
-		<landing v-show="b">111</landing>
 	</div>
 </template>
 <script>
-import landing from '@/components/landing.vue'
 export default {
   data() {
     return {
@@ -18,9 +16,6 @@ export default {
       	b: true
       }
     }
-  },
-  components:{
-    landing
   }
 }
 </script>

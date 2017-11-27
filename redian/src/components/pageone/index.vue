@@ -6,12 +6,12 @@
 		</div>
 		<div class="content">
 			<div class="conttop">
-				<a href="javascript:;"><img src="../../assets/image/nav_t1.jpg"></a>
-				<a href="javascript:;"><img src="../../assets/image/nav_t2.jpg"></a>
+				<router-link to="/pagetwo/pagetwob" tag="a"><img src="../../assets/image/nav_t1.jpg"></router-link>
+				<router-link to="/pagetwo/pagetwod" tag="a"><img src="../../assets/image/nav_t2.jpg"></router-link>
 			</div>
 			<div class="contbtm">
-				<a href="javascript:;"><img src="../../assets/image/nav_t3.jpg"></a>
-				<a href="javascript:;"><img src="../../assets/image/nav_t4.jpg"></a>
+				<router-link to="/pagetwo/pagetwoc" tag="a"><img src="../../assets/image/nav_t3.jpg"></router-link>
+				<router-link to="/pagetwo/pagetwoa" tag="a"><img src="../../assets/image/nav_t4.jpg"></router-link>
 			</div>
 		</div>
 	</div>

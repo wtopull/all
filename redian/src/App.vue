@@ -2,7 +2,7 @@
   <div class="all">
     <my_header></my_header>
     <ul class="indexNav">
-      <router-link to="/index" tag="li">首页</router-link>
+      <router-link to="/" tag="li">首页</router-link>
       <router-link to="/pagetwo" tag="li">游戏中心</router-link>
       <router-link to="/pagethree" tag="li">优惠活动</router-link>
       <router-link to="/pagefour" tag="li">个人中心</router-link>

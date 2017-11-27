@@ -14,7 +14,7 @@
 <style>
 .pagetwoBox{
 	width: 100%;
-	height:426px;
+	height:402px;
 	padding-top:30px;
 	overflow-x:hidden;
 }

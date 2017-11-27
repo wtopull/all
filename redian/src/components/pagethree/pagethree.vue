@@ -14,9 +14,10 @@
 export default{
 	data() {
 		return {
-			msg: '3333333333'
+			
 		}
 	}
+  
 }
 </script>
 <style>

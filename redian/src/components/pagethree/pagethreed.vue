@@ -2,17 +2,26 @@
 	<div class="pagethreed">
 		<div class="pagethreeBox">
 			<ul class="pagethreedUl">
-				<router-link to="" tag="li"><img src="../../assets/image/disc_4.png" height="138" width="108" alt=""></router-link>
-				<router-link to="" tag="li"><img src="../../assets/image/disc_5.png" height="138" width="108" alt=""></router-link>
+				<router-link to="" tag="li"><img @click="showond()" src="../../assets/image/disc_4.png" height="138" width="108" alt=""></router-link>
+				<promotionl v-show="ond"></promotionl>
 			</ul>
 		</div>
 	</div>
 </template>
 <script>
+import promotionl from './promotions/promotion_4.vue';
 export default{
 	data() {
 		return {
-			msg: '3333333333'
+			ond:false
+		}
+	},
+	components:{
+	    promotionl
+	},
+	methods:{
+		showond:function() {
+			this.ond = !this.ond
 		}
 	}
 }
@@ -24,7 +33,7 @@ export default{
 	}
 	.pagethreeBox{
 		width: 100%;
-		height:450px;
+		height:430px;
 		overflow-x:hidden;
 	}
 	.pagethreedUl{

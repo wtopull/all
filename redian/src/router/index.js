@@ -16,13 +16,15 @@ import pagethreec from '@/components/pagethree/pagethreec.vue'
 import pagethreed from '@/components/pagethree/pagethreed.vue'
 
 import pagefour from '@/components/pagefour/pagefour.vue'
+import landing from '@/components/landing.vue'
+import register from '@/components/register.vue'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [
 	    {
-	      path: '/',
+	      	path: '/',
 	    	name: 'index',
 	    	component: index
 	    },
@@ -30,6 +32,16 @@ export default new Router({
 	    	path: '/index',
 	    	name: 'index',
 	    	component: index
+	    },
+	    {
+	      	path: '/landing',
+	    	name: 'landing',
+	    	component: landing
+	    },
+	    {
+	      	path: '/register',
+	    	name: 'register',
+	    	component: register
 	    },
 	    {
 	    	path: '/pagetwo',

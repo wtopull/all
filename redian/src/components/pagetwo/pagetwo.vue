@@ -2,10 +2,10 @@
 	<div class="pagetwo">
 		<div class="banner"><img src="../../assets/image/banner-2.jpg"></div>
 		<ul class="pagetwonav">
-	      <router-link to="/pagetwo/pagetwoa" name="pagetwoa" tag="li">彩票游戏</router-link>
 	      <router-link to="/pagetwo/pagetwob" tag="li">真人视讯</router-link>
-	      <router-link to="/pagetwo/pagetwoc" tag="li">电子游戏</router-link>
 	      <router-link to="/pagetwo/pagetwod" tag="li">体育赛事</router-link>
+	      <router-link to="/pagetwo/pagetwoc" tag="li">电子游戏</router-link>
+	      <router-link to="/pagetwo/pagetwoa" tag="li">彩票游戏</router-link>
 	    </ul>
 	    <router-view />
 	</div>
