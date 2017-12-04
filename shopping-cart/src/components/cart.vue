@@ -1,37 +1,31 @@
 <template>
-  <div class="box">
-    <div class="top">商品列表</div>
-    <div class="title">
-      <ul>
-        <!--<li class="cate" v-bind:class="{'tab-active': cate_index === index}" v-for="(item, index) in cate" @click="toggleCate(index)">{{ item.des }}</li>-->
-        <li v-for="(nav,index) in navs" :class="{active:index===numbera}" @click="numbera=index">{{nav.name}}</li>
-      </ul>
-    </div>
-    <div class="contentNav">
-      <ul>
-        <li v-for="(sorts,index) in sort" class="filter-opt" :class="{'sorts':index===numberb,  'price-up':!price_isAsc, 'price-down':price_isAsc}" @click="numberb=index">{{sorts.name}}</li>
-      </ul>
-    </div>
-    <div class="content">
-      <ul>
-        <li v-for="(good,index) in goods">
-          <div class="contentLeft"> <img :src="good.img" /> </div>
-          <div class="contentRight">
-            <h3 class="name">{{good.name}}</h3>
-            <p class="price">￥{{good.price}}</p>
-            <p class="salesshow">已有{{good.sales}}人付款<span>+</span></p>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <router-link to="/cart" tag="div" class="cartBg"></router-link>
-    <!--<div class="cartBg"></div>-->
+  <div class="cart">
+    <div class="top">
+      <router-link to='/' tag="span" class="back"><</router-link>购物清单</div>
+    <ul class="cartUl">
+      <li v-for="(good,index) in goods"> 
+      	<p class="goodsP">
+      		<input type="checkbox" name="" id="goodInp" value="" />
+      	</p>
+      	
+        <div class="contentLeft"> <img :src="good.img" /> </div>
+        <div class="contentRight">
+          <h3 class="name">{{good.name}}</h3>
+          <p class="price">￥{{good.price}}</p>
+          <p class="sales">库存：{{good.stock}}</p>
+          <p class="add"><span>+</span><br />1<br /><span>-</span></p>
+        </div>
+      </li>
+    </ul>
+    <div class="cartFooter"> <label class="footBtn">
+    	<input type="checkbox"id="all" value=""/>全选</label> 
+    	<span class="total">合计：<span>￥0</span></span> 
+    	<span class="accounts">去结算(0元)</span> </div>
   </div>
 </template>
-<script style="text/javascript">
-	import cart from './cart.vue'
+<script>
   export default {
-    data () {
+    data() {
       return {
         navs: [{
           id: 0,
@@ -134,80 +128,122 @@
         price_isAsc: false,
         checked: false
       }
-    },
-    components:{
-    	cart
     }
   }
 </script>
-<style type="text/css">
-  .box {
+<style>
+  .cart {
+    font-size: 22px;
     width: 100%;
     height: 100%;
-    font-size: .18rem;
-    text-align: center;
-    background: #eee;
   }
-  .top {
+ .cart .top {
     font-size: 0.24rem;
     height: 0.6rem;
     line-height: 0.6rem;
     background: #fff;
+    text-align: center;
+    position: relative;
   }
-  .title {
-    background: #5D4285;
-    height: 0.6rem;
-    line-height: 0.6rem;
+  .cart .top .back {
+    position: absolute;
+    left: 0.1rem;
+    color: #666;
+    font-size: 40px;
   }
-  ul {
-    list-style: none;
-  }
-  .active {
-    background-color: #9A51FF;
-  }
-  .sorts {
-    color: #9A51FF;
-  }
-  .title ul li {
-    float: left;
-    width: 20%;
-    font-size: 0.16rem;
-    color: #fff;
-  }
-  .contentNav {
+ .cart .cartFooter {
+    width: 100%;
     height: 0.5rem;
-    border-bottom: 1px solid #e5e5e5;
     background: #fff;
+    position: fixed;
+    bottom: 0;
   }
-  .contentNav ul li {
-    float: left;
-    width: 33.33%;
-    font-size: 0.16rem;
+ .cart .footBtn {
+    font-size: 0.14rem;
     height: 0.5rem;
     line-height: 0.5rem;
+    cursor: pointer;
+    position: absolute;
+    left: 0.15rem;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
   }
-  .content {
-    text-align: left;
+  .cart .footBtn #all {
+    width: 0.2rem;
+    height: .2rem;
+    border: 1px solid #333;
+    border-radius: 0.09rem;
+    margin-right: 0.09rem;
+    vertical-align: middle;
   }
-  .content ul li {
+  .cart .total {
+    height: 0.5rem;
+    line-height: 0.5rem;
+    position: absolute;
+    right: 1.1rem;
+    font-size: 14px;
+  }
+  .cart .total span {
+    color: #7A45E5;
+    font-size: 16px;
+  }
+  .cart .accounts {
+    height: 0.5rem;
+    line-height: 0.5rem;
+    width: 1rem;
+    background: #7A45E5;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    font-size: 0.14rem;
+  }
+  .cart .cartUl {
+    height: 100%;
+    margin: 0.1rem 0rem 0.5rem 0.1rem;
+    position: relative;
+    list-style: none;
+  }
+  .cart .cartUl li {
     height: 1rem;
     width: 100%;
     background: #fff;
-    margin-top: 0.18rem;
     padding-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    position: relative;
   }
+  .cart .goodsP{
+  	float: left;
+  	width:12%;
+  	height:100%;
+  	margin-left:0.05rem;
+  }
+  #goodInp{
+  	width:0.2rem;
+  	height:0.2rem;
+  	margin-top: 0.36rem;
+  }
+  
   .contentLeft {
     float: left;
+   	width: 0.8rem;
+    height: 0.8rem;
     width: 22%;
   }
   .contentLeft img {
     width: 0.8rem;
     height: 0.8rem;
     display: block;
-    margin-right: 0.15rem;
+    float: left;
+    font-size: 0.16rem;
+    color: #fff;
   }
-  .contentRight {
-    width: 75%;
+  .cart .contentRight {
+    width: 60%;
     float: right;
   }
   .contentRight h3.name {
@@ -225,13 +261,14 @@
     font-weight: bold;
     font-size: 16px;
   }
-  .contentRight .salesshow {
+  .contentRight .sales {
     color: #888;
     font-size: 13px;
     position: relative;
     height: 0.22rem;
+    width:2rem;
   }
-  .contentRight .salesshow span {
+  .contentRight .sales span {
     background: #7a45e5;
     width: 0.32rem;
     height: 0.22rem;
@@ -243,15 +280,30 @@
     position: absolute;
     right: 2%;
   }
-  .cartBg{
-  	right:0.01rem;
-  	background:red url(../assets/image/cart.jpg) no-repeat center center;
-  	width:.6rem;
-  	height: .6rem;
-  	position:fixed;
-  	bottom:0.5rem;
-  	right:0rem;
-  	background-size:100% 100%;
-  	border-radius:1rem;
+  .add{
+  	height:1.1rem;
+  	width:0.3rem;
+  	font-size:0.16rem;
+  	position:absolute;
+  	right:0.1rem;
+  	top:0;
+  	color:#999;
+  	border-radius:0.2rem;
+  	text-align: center;
+  	cursor: pointer;
+  	-webkit-tap-highlight-color:transparent
+  }
+  .add span{
+  	font-size:0.2rem;
+  	color:#999;
+  	height:0.5rem;
+  	line-height:0.5rem;
+  	display: inline-block;
+  	text-align: center;
+  	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
   }
 </style>
