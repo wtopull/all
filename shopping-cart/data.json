@@ -1,0 +1,75 @@
+{
+  "goods": [{
+          "id": 1001,
+          "name": "Nescafe Espresso Roast",
+          "price": 60,
+          "type": 3,
+          "stock": 12,
+          "sales": 1500,
+          "img": "http://img.xxjcy.com/pic/z2966d4c-300x300-1/nestle_nescafe_alta_rica_coffee_100g.jpg"
+        }, {
+          "id": 1002,
+          "name": "雀巢咖啡 Smoovlatte",
+          "price": 60,
+          "type": 3,
+          "stock": 12,
+          "sales": 1500,
+          "img": "http://www.hclsw.com/d/file/yinpin/94/2014/03-28/foi3h3xbuzk_big.jpg"
+        }, {
+          "id": 1003,
+          "name": "海狸嗨哩母婴用品",
+          "price": 60,
+          "type": 3,
+          "stock": 12,
+          "sales": 1500,
+          "img": "http://img36.ddimg.cn/73/21/1246060306-1_b.jpg"
+        },{
+          "id": 1004,
+          "name": "微星（MSI）GL72M 7REX-817CN 17.3英寸游戏笔记本电脑(i7-7700HQ 8G 1T+128GSSD GTX1050TI 4G WIN10)黑",
+          "price": 60,
+          "type": 3,
+          "stock": 12,
+          "sales": 1500,
+          "img": "http://img12.360buyimg.com/n1/s450x450_jfs/t11353/19/1571669802/181362/7240a8ae/5a03c139N15161501.jpg"
+        },{
+          "id": 1005,
+          "name": "SF-2 双镜头反光相机 + minotla 美能达 X370 胶片相机",
+          "price": 60,
+          "type": 3,
+          "stock": 12,
+          "sales": 1500,
+          "img": "http://img2.imgtn.bdimg.com/it/u=2946579396,1383754860&fm=27&gp=0.jpg"
+        },{
+          "id": 1006,
+          "name": "网吧专用电脑开关",
+          "price": 60,
+          "type": 3,
+          "stock": 12,
+          "sales": 1500,
+          "img": "http://img1.imgtn.bdimg.com/it/u=1864760481,3119048315&fm=214&gp=0.jpg"
+        },{
+          "id": 1007,
+          "name": "华硕（ASUS） 超薄金属超极本RX310/RX410/U4000笔记本电脑学生手提轻薄 玫瑰金【金属本】 13.3英寸/I3-7100U/4G/128G",
+          "price": 60,
+          "type": 3,
+          "stock": 12,
+          "sales": 1500,
+          "img": "http://img14.360buyimg.com/n1/s546x546_jfs/t4435/165/4095834799/98047/194c38dd/590a953bN09725348.jpg"
+        },{
+          "id": 1008,
+          "name": "URBANWAVE城市波浪 高端情侣背包双肩包书包旅行包学生商务15英寸防震电脑包 经典款 精英必备",
+          "price": 60,
+          "type": 3,
+          "stock": 12,
+          "sales": 1500,
+          "img": "https://img14.360buyimg.com/n0/jfs/t11662/260/2586381784/256850/f0b1d47/5a1ae81cN708d8bc9.jpg"
+        },{
+          "id": 1009,
+          "name": "健身包男运动包单肩训练包足球圆筒包大容量旅行包手提包 黑色",
+          "price": 60,
+          "type": 3,
+          "stock": 12,
+          "sales": 1500,
+          "img": "http://img14.360buyimg.com/n0/jfs/t10165/23/1982337495/68692/8dde1adb/59eb1257N853e8ca1.jpg"
+        }]
+}

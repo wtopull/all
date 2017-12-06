@@ -3,7 +3,6 @@
     <div class="top">商品列表</div>
     <div class="title">
       <ul>
-        <!--<li class="cate" v-bind:class="{'tab-active': cate_index === index}" v-for="(item, index) in cate" @click="toggleCate(index)">{{ item.des }}</li>-->
         <li v-for="(nav,index) in navs" :class="{active:index===numbera}" @click="numbera=index">{{nav.name}}</li>
       </ul>
     </div>
@@ -14,12 +13,12 @@
     </div>
     <div class="content">
       <ul>
-        <li v-for="(good,index) in goods">
-          <div class="contentLeft"> <img :src="good.img" /> </div>
+        <li v-for="(goodTo,index) in goods">
+          <div class="contentLeft"> <img :src="goodTo.img" /> </div>
           <div class="contentRight">
-            <h3 class="name">{{good.name}}</h3>
-            <p class="price">￥{{good.price}}</p>
-            <p class="salesshow">已有{{good.sales}}人付款<span>+</span></p>
+            <h3 class="name">{{goodTo.name}}</h3>
+            <p class="price">￥{{goodTo.price}}</p>
+            <p class="salesshow">已有{{goodTo.sales}}人付款<span @click="addToCart(goodTo)">+</span></p>
           </div>
         </li>
       </ul>
@@ -56,87 +55,43 @@
         }, {
           name: '价格'
         }],
-        goods: [{
-          id: 1001,
-          name: 'Nescafe Espresso Roast',
-          price: 60,
-          type: 3,
-          stock: 12,
-          sales: 1500,
-          img: 'http://img.xxjcy.com/pic/z2966d4c-300x300-1/nestle_nescafe_alta_rica_coffee_100g.jpg'
-        }, {
-          id: 1002,
-          name: '雀巢咖啡 Smoovlatte',
-          price: 37,
-          type: 3,
-          stock: 168,
-          sales: 864,
-          img: 'http://www.hclsw.com/d/file/yinpin/94/2014/03-28/foi3h3xbuzk_big.jpg'
-        }, {
-          id: 1003,
-          name: '海狸嗨哩母婴用品',
-          price: 120,
-          type: 1,
-          stock: 38,
-          sales: 230,
-          img: 'http://img36.ddimg.cn/73/21/1246060306-1_b.jpg'
-        }, {
-          id: 1003,
-          name: '微星（MSI）GL72M 7REX-817CN 17.3英寸游戏笔记本电脑(i7-7700HQ 8G 1T+128GSSD GTX1050TI 4G WIN10)黑',
-          price: 165,
-          type: 4,
-          stock: 38,
-          sales: 10,
-          img: 'http://img12.360buyimg.com/n1/s450x450_jfs/t11353/19/1571669802/181362/7240a8ae/5a03c139N15161501.jpg'
-        }, {
-          id: 1003,
-          name: 'SF-2 双镜头反光相机 + minotla 美能达 X370 胶片相机',
-          price: 2999,
-          type: 4,
-          stock: 38,
-          sales: 5,
-          img: 'http://img2.imgtn.bdimg.com/it/u=2946579396,1383754860&fm=27&gp=0.jpg'
-        }, {
-          id: 1003,
-          name: '网吧专用电脑开关',
-          price: 110,
-          type: 4,
-          stock: 10,
-          sales: 203,
-          img: 'http://img1.imgtn.bdimg.com/it/u=1864760481,3119048315&fm=214&gp=0.jpg'
-        }, {
-          id: 1003,
-          name: '华硕（ASUS） 超薄金属超极本RX310/RX410/U4000笔记本电脑学生手提轻薄 玫瑰金【金属本】 13.3英寸/I3-7100U/4G/128G',
-          price: 4099,
-          type: 4,
-          stock: 5,
-          sales: 43,
-          img: 'http://img14.360buyimg.com/n1/s546x546_jfs/t4435/165/4095834799/98047/194c38dd/590a953bN09725348.jpg'
-        }, {
-          id: 1003,
-          name: 'URBANWAVE城市波浪 高端情侣背包双肩包书包旅行包学生商务15英寸防震电脑包 经典款 精英必备',
-          price: 998,
-          type: 2,
-          stock: 10,
-          sales: 23,
-          img: 'https://img14.360buyimg.com/n0/jfs/t11662/260/2586381784/256850/f0b1d47/5a1ae81cN708d8bc9.jpg'
-        }, {
-          id: 1003,
-          name: '健身包男运动包单肩训练包足球圆筒包大容量旅行包手提包 黑色',
-          price: 89,
-          type: 2,
-          stock: 5,
-          sales: 43,
-          img: 'http://img14.360buyimg.com/n0/jfs/t10165/23/1982337495/68692/8dde1adb/59eb1257N853e8ca1.jpg'
-        }],
         numbera: 0,
         numberb: 0,
         price_isAsc: false,
         checked: false
       }
     },
+    methods:{
+    	addToCart:function(goods){
+        let alreadyIndex = this.cart.findIndex(function (item, index) {
+            return item.id === goods.id;
+            
+        });
+        if (alreadyIndex === -1) {
+            let cartIndex = this.cart.length;
+            // 添加新的商品，并初始化其数量、价格、被选中状态
+            this.cart.push(goods);
+            this.$set(this.cart[cartIndex], 'quantity', 1);
+            this.$set(this.cart[cartIndex], 'subtotal', goods.price.toFixed(1));
+            this.$set(this.cart[cartIndex], 'checked', false);
+            // 新增商品，购物车不能为全选
+            this.checkAllFlag = false;
+            return;
+        }
+
+        // 如果商品已存在并且库存足够，数量加1
+        let alreadyGoods = this.cart[alreadyIndex];
+        let num = alreadyGoods.quantity,
+            stock = alreadyGoods.stock;
+
+        if (num < stock) {
+            this.$set(alreadyGoods, 'quantity', ++alreadyGoods.quantity);
+            this.$set(alreadyGoods, 'subtotal', (alreadyGoods.price * alreadyGoods.quantity).toFixed(1));
+        }
+      }
+    },
     components:{
-    	cart
+      cart
     }
   }
 </script>

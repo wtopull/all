@@ -26,9 +26,9 @@
   export default {
     data() {
       return {
-        cart:[],
+        goods:[],
         selectedNum:0,
-        goods: [{
+        /*goods: [{
           id: 1001,
           name: 'Nescafe Espresso Roast',
           price: 60,
@@ -39,29 +39,7 @@
           checked: false,
           sales: 1500,
           img: 'http://img.xxjcy.com/pic/z2966d4c-300x300-1/nestle_nescafe_alta_rica_coffee_100g.jpg'
-        },  {
-          id: 1003,
-          name: '健身包男运动包单肩训练包足球圆筒包大容量旅行包手提包 黑色',
-          price: 89,
-          subtotal:89,
-          type: 2,
-          stock: 5,
-          quantity:0,
-          checked: false,
-          sales: 43,
-          img: 'http://img14.360buyimg.com/n0/jfs/t10165/23/1982337495/68692/8dde1adb/59eb1257N853e8ca1.jpg'
-        },  {
-          id: 1003,
-          name: '健身包男运动包单肩训练包足球圆筒包大容量旅行包手提包 黑色',
-          price: 89,
-          subtotal:89,
-          type: 2,
-          stock: 5,
-          quantity:0,
-          checked: false,
-          sales: 43,
-          img: 'http://img14.360buyimg.com/n0/jfs/t10165/23/1982337495/68692/8dde1adb/59eb1257N853e8ca1.jpg'
-        }],
+        }],*/
         numbera: 0,
         numberb: 0,
         price_isAsc: false,
