@@ -5,128 +5,119 @@
     <ul class="cartUl">
       <li v-for="(good,index) in goods"> 
       	<p class="goodsP">
-      		<input type="checkbox" name="" id="goodInp" value="" />
+      		<input type="checkbox" id="goodInp" :checked="good.checked" @click="selectGoods(good)"/>
       	</p>
-      	
-        <div class="contentLeft"> <img :src="good.img" /> </div>
+        <div class="contentLeft"> <img :src="good.img" /></div>
         <div class="contentRight">
           <h3 class="name">{{good.name}}</h3>
           <p class="price">￥{{good.price}}</p>
           <p class="sales">库存：{{good.stock}}</p>
-          <p class="add"><span>+</span><br />1<br /><span>-</span></p>
+          <p class="add"><span @click="changeQty(true,good)">+</span><br />{{good.quantity}}<br /><span @click="changeQty(false,good)">-</span></p>
         </div>
       </li>
     </ul>
-    <div class="cartFooter"> <label class="footBtn">
-    	<input type="checkbox"id="all" value=""/>全选</label> 
-    	<span class="total">合计：<span>￥0</span></span> 
-    	<span class="accounts">去结算(0元)</span> </div>
+    <div class="cartFooter" v-for="(good,index) in goods"> <label class="footBtn">
+    	<input type="checkbox"id="all" value="" @click="checkedAll"  :class="{'selector-active': checkAllFlag}"/>全选</label> 
+    	<span class="total">合计：<span>￥{{totalPrice}}</span></span> 
+    	<span class="accounts">去结算({{totalPrice}}元)</span> </div>
   </div>
 </template>
 <script>
   export default {
     data() {
       return {
-        navs: [{
-          id: 0,
-          name: '推荐'
-        }, {
-          id: 1,
-          name: '母婴'
-        }, {
-          id: 2,
-          name: '鞋包饰品'
-        }, {
-          id: 3,
-          name: '食品'
-        }, {
-          id: 4,
-          name: '数码家电'
-        }],
-        sort: [{
-          name: '综合排序'
-        }, {
-          name: '销量优先'
-        }, {
-          name: '价格'
-        }],
+        cart:[],
+        selectedNum:0,
         goods: [{
           id: 1001,
           name: 'Nescafe Espresso Roast',
           price: 60,
+          subtotal:60,
           type: 3,
           stock: 12,
+          quantity:0,
+          checked: false,
           sales: 1500,
           img: 'http://img.xxjcy.com/pic/z2966d4c-300x300-1/nestle_nescafe_alta_rica_coffee_100g.jpg'
-        }, {
-          id: 1002,
-          name: '雀巢咖啡 Smoovlatte',
-          price: 37,
-          type: 3,
-          stock: 168,
-          sales: 864,
-          img: 'http://www.hclsw.com/d/file/yinpin/94/2014/03-28/foi3h3xbuzk_big.jpg'
-        }, {
-          id: 1003,
-          name: '海狸嗨哩母婴用品',
-          price: 120,
-          type: 1,
-          stock: 38,
-          sales: 230,
-          img: 'http://img36.ddimg.cn/73/21/1246060306-1_b.jpg'
-        }, {
-          id: 1003,
-          name: '微星（MSI）GL72M 7REX-817CN 17.3英寸游戏笔记本电脑(i7-7700HQ 8G 1T+128GSSD GTX1050TI 4G WIN10)黑',
-          price: 165,
-          type: 4,
-          stock: 38,
-          sales: 10,
-          img: 'http://img12.360buyimg.com/n1/s450x450_jfs/t11353/19/1571669802/181362/7240a8ae/5a03c139N15161501.jpg'
-        }, {
-          id: 1003,
-          name: 'SF-2 双镜头反光相机 + minotla 美能达 X370 胶片相机',
-          price: 2999,
-          type: 4,
-          stock: 38,
-          sales: 5,
-          img: 'http://img2.imgtn.bdimg.com/it/u=2946579396,1383754860&fm=27&gp=0.jpg'
-        }, {
-          id: 1003,
-          name: '网吧专用电脑开关',
-          price: 110,
-          type: 4,
-          stock: 10,
-          sales: 203,
-          img: 'http://img1.imgtn.bdimg.com/it/u=1864760481,3119048315&fm=214&gp=0.jpg'
-        }, {
-          id: 1003,
-          name: '华硕（ASUS） 超薄金属超极本RX310/RX410/U4000笔记本电脑学生手提轻薄 玫瑰金【金属本】 13.3英寸/I3-7100U/4G/128G',
-          price: 4099,
-          type: 4,
-          stock: 5,
-          sales: 43,
-          img: 'http://img14.360buyimg.com/n1/s546x546_jfs/t4435/165/4095834799/98047/194c38dd/590a953bN09725348.jpg'
-        }, {
-          id: 1003,
-          name: 'URBANWAVE城市波浪 高端情侣背包双肩包书包旅行包学生商务15英寸防震电脑包 经典款 精英必备',
-          price: 998,
-          type: 2,
-          stock: 10,
-          sales: 23,
-          img: 'https://img14.360buyimg.com/n0/jfs/t11662/260/2586381784/256850/f0b1d47/5a1ae81cN708d8bc9.jpg'
-        }, {
+        },  {
           id: 1003,
           name: '健身包男运动包单肩训练包足球圆筒包大容量旅行包手提包 黑色',
           price: 89,
+          subtotal:89,
           type: 2,
           stock: 5,
+          quantity:0,
+          checked: false,
+          sales: 43,
+          img: 'http://img14.360buyimg.com/n0/jfs/t10165/23/1982337495/68692/8dde1adb/59eb1257N853e8ca1.jpg'
+        },  {
+          id: 1003,
+          name: '健身包男运动包单肩训练包足球圆筒包大容量旅行包手提包 黑色',
+          price: 89,
+          subtotal:89,
+          type: 2,
+          stock: 5,
+          quantity:0,
+          checked: false,
           sales: 43,
           img: 'http://img14.360buyimg.com/n0/jfs/t10165/23/1982337495/68692/8dde1adb/59eb1257N853e8ca1.jpg'
         }],
         numbera: 0,
         numberb: 0,
         price_isAsc: false,
-        checked: false
+        checkAllFlag: false
+      }
+    },
+    methods: {
+      /*+,-*/
+      changeQty:function(isAdd,good){
+        var num = good.quantity,
+            stock = good.stock;
+        if(isAdd && num < stock){
+          this.$set(good, 'quantity', ++num);
+          /*quantity==1,哪就是选中状态*/
+          good.checked = true;
+        }else if (!isAdd && num > 0){
+          this.$set(good, 'quantity', --num);
+          /*quantity==0,哪就是没选中状态*/
+          if(num===0){
+            good.checked = false;
+          }
+        }
+        this.$set(good, 'subtotal', (good.price * num).toFixed(1));
+
+      },
+      selectGoods:function(item){
+        item.checked = !item.checked;
+        item.checked ? ++this.selectedNum : --this.selectedNum;
+        item.quantity =1;
+        /*全选了*/
+        this.selectedNum === this.goods.length ? this.checkAllFlag = true : this.checkAllFlag = false
+      },
+      /*全选*/
+      checkedAll:function() {
+        var self = this;
+        this.checkAllFlag = !this.checkAllFlag;
+        this.goods.forEach(function (item) {
+          if (self.checkAllFlag) {
+              item.checked = true;
+              self.selectedNum = self.goods.length;
+          } else {
+              item.checked = false;
+              self.selectedNum = 0;
+          }
+        });
+      }
+    },
+
+    computed:{
+      /*总额*/
+      totalPrice:function(){
+        var num = 0;
+        this.goods.forEach(function (good) {
+            good.checked && (num += parseFloat(good.subtotal));
+        });
+        return num;
       }
     }
   }
