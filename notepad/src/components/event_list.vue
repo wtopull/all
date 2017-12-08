@@ -21,7 +21,7 @@
                 <li class="event-list" v-for="value in getDone">
                     <input type="checkbox" :key="value.id" checked @click="moveToDo(value.id)">
                     <div>{{value.content}}</div>
-                    <span class="event-time">{{value.time}}</span>
+                    <span class="event-time">{{a |data}}----{{value.time}}</span>
                 </li>
             </ul>
         </div>
@@ -56,6 +56,7 @@
                         show: true,
                     }
                 ],
+                a:Date.now()
             }
         },
         computed: {
@@ -68,6 +69,18 @@
             getCancel(){
                 return this.$store.getters.getCancel;
             },
+        },
+        filters: {
+           data:function (input) {
+               var d = new Date(input);
+               var year = d.getFullYear();
+               var month = d.getMonth() + 1;
+               var day = d.getDate() <10 ? '0' + d.getDate() : '' + d.getDate();
+               var hour = d.getHours();
+               var minutes = d.getMinutes();
+               var seconds = d.getSeconds();
+               return  year+ '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds;
+           }
         },
         methods: {
             moveToDone(id){ //移至已完成

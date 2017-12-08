@@ -18,5 +18,5 @@ export const theme_local = new localEvent('lx_theme');
 export const getDate = () => { //获取当天日期
     const date = new Date(),
         mouth = parseInt(date.getMonth()) + 1;
-    return date.getFullYear() + '-' + mouth + '-' + date.getDate();
+    return date.getFullYear() + '-' + mouth + '-' + date.getDate()+' '+'-'+ date.getDate();
 }

@@ -9,7 +9,7 @@
             showTools(){
                 this.$emit('tools');
             }
-        }
+        },
     }
 </script>
 
