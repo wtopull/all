@@ -1,0 +1,9 @@
+[ 2017-12-09T01:28:27+08:00 ] 127.0.0.1 /shop/index.php/Manager/login
+ERR: 无法加载控制器:Manager
+
+[ 2017-12-09T01:29:14+08:00 ] 127.0.0.1 /shop/index.php/Goods/xiugai
+ERR: 非法操作:xiugai
+
+[ 2017-12-09T01:40:11+08:00 ] 127.0.0.1 /shop/index.php/Index/inde
+ERR: 非法操作:inde
+

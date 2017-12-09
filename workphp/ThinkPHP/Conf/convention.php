@@ -38,7 +38,7 @@ return  array(
     'COOKIE_HTTPONLY'       =>  '',      // Cookie httponly设置
 
     /* 默认设定 */
-    'DEFAULT_M_LAYER'       =>  'Model', // 默认的模型层名称
+    'DEFAULT_M_LAYER'       =>  'Home', // 默认的模型层名称
     'DEFAULT_C_LAYER'       =>  'Controller', // 默认的控制器层名称
     'DEFAULT_V_LAYER'       =>  'View', // 默认的视图层名称
     'DEFAULT_LANG'          =>  'zh-cn', // 默认语言
@@ -55,11 +55,11 @@ return  array(
     /* 数据库设置 */
     'DB_TYPE'               =>  'mysql',     // 数据库类型
     'DB_HOST'               =>  'localhost', // 服务器地址
-    'DB_NAME'               =>  'bg_bg',          // 数据库名
+    'DB_NAME'               =>  'bg_item',          // 数据库名
     'DB_USER'               =>  'asd',      // 用户名
     'DB_PWD'                =>  'asdasd',          // 密码
-    'DB_PORT'               =>  '80',        // 端口
-    'DB_PREFIX'             =>  'bg_',    // 数据库表前缀
+    'DB_PORT'               =>  '3306',        // 端口
+    'DB_PREFIX'             =>  '',    // 数据库表前缀
     'DB_PARAMS'          	=>  array(), // 数据库连接参数    
     'DB_DEBUG'  			=>  TRUE, // 数据库调试模式 开启后可以记录SQL日志
     'DB_FIELDS_CACHE'       =>  true,        // 启用字段缓存

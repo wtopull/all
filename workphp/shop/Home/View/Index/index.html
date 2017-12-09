@@ -12,7 +12,7 @@
 <script type="text/javascript" charset="utf-8" src="../../../Public/umeditor/umeditor.min.js"></script>
 <script type="text/javascript" src="../../../Public/umeditor/lang/zh-cn/zh-cn.js"></script>
 <body class="layui-layout-body">
-  <div class="layui-layout layui-layout-admin">
+  <div class="layui-layout layui-layout-admin layui-row">
     <div class="layui-header layui-row">
       <div class="layui-logo">后台管理</div>
       <ul class="layui-nav layui-layout-right">
@@ -27,7 +27,7 @@
     <div class="layui-side layui-bg-black">
       <div class="layui-side-scroll">
         <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-        <!--<ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <!-- <ul class="layui-nav layui-nav-tree" lay-filter="test">
           <li class="layui-nav-item layui-nav-itemed">
             <a class="" href="javascript:;">网站管理</a>
             <dl class="layui-nav-child">
@@ -53,7 +53,7 @@
             <dd><a href="">超链接</a></dd>
           </dl>
         </li>
-        </ul>-->
+        </ul> -->
       </div>
     </div>
     <div class="layui-body">
@@ -73,24 +73,25 @@
           </ul>
           <div class="layui-tab-content" style="">
             <div class="layui-tab-item layui-show">
-              <form class="layui-form" action="">
+              <form class="layui-form" action="__SELF__" enctype="multipart/form-data">
                 <div class="layui-form-item layui-row"> <label class="layui-form-label">图片</label>
                   <div class="layui-input-block"> 
-                  	<input type="file" class=" layui-col-xs2 layui-col-sm2" id="test1" style="margin-top:5px;">
-										</input> </div>
+                  	<input type="file" name="img_bg" class="layui-col-xs2 layui-col-sm2" id="test1" style="margin-top:5px;">
+										</input>
+                  </div>
                 </div>
                 <div class="layui-form-item layui-row"> <label class="layui-form-label">标题</label>
-                  <div class="layui-input-block"> <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input layui-col-xs11 layui-col-sm11"> </div>
+                  <div class="layui-input-block"> <input type="text" name="title_bg" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input layui-col-xs11 layui-col-sm11"> </div>
                 </div>
                 <div class="layui-form-item"> <label class="layui-form-label">文本域</label>
                   <div class="layui-input-block">
-                    <script type="text/plain" id="myEditor" style="width:100%;height:300px;" name="script">
-                      <p></p>
+                    <script type="text/plain" id="myEditor" style="width:92%;height:300px;" name="script">
+                      <p name="text_bg"></p>
                     </script>
                   </div>
                 </div>
                 <div class="layui-form-item">
-                  <div class="layui-input-block"> <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button> <button type="reset" class="layui-btn layui-btn-primary">重置</button> </div>
+                  <div class="layui-input-block"> <button class="" type="submit">立即提交</button> <button type="reset" class="layui-btn layui-btn-primary">重置</button> </div>
                 </div>
               </form>
             </div>
@@ -104,8 +105,6 @@
   </div>
   <script src="../../../Public/js/layui.js"></script>
   <script>
-  	
-  	document.getElementById("rehuo").value="fdsafasdf";
     //JavaScript代码区域
     layui.use('element', function() {
       var element = layui.element;
@@ -118,27 +117,9 @@
         return false;
       });
     });
-    /*layui.use('upload', function() {
-      var upload = layui.upload;
-      console.log(upload);
-      var uploadInst = upload.render({
-        elem: '#test1' //绑定元素
-          ,
-        url: 'index.php/../../../upload/' //上传接口
-          ,
-        done: function(res) {
-          //上传完毕回调
-          LAY_demo_upload.src = res.url;
-          console.log(red);
-        },
-        error: function() {
-          //请求异常回调
-        }
-      });
-    });*/
   </script>
   <script type="text/javascript">
-    var um = UM.getEditor('myEditor');
+    var um = UM.getEditor('myEditor',{initialFrameWidth: null});
   </script>
 </body>
 </html>

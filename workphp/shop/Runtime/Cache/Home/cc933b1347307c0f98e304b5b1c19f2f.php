@@ -36,23 +36,21 @@
               <li>
                 <a href="index.html" target="_self">热火站</a>
               </li>
-              <li>
+              <li class="layui-this">
                 <a href="redian.html" target="_self">热点站</a>
               </li>
-              <li class="layui-this">
+              <li>
                 <a href="qita.html" target="_self">其它站</a>
               </li>
             </ul>
             <div class="layui-tab-content" style="">
               <div class="layui-tab-item layui-show">
-                <form class="layui-form" method="post" enctype=m"ultipart/form-data">
-                  <div class="layui-form-item layui-row"> 
-                  	<label class="layui-form-label">图片</label>
-	                  <div class="layui-input-block"> 
-	                  	<input type="file" name="upfile" class="layui-col-xs2 layui-col-sm2" id="test1" style="margin-top:5px;">
-											</input> 
-	                  </div>
-	                </div>
+                <form action="/shop/index.php/Home/Index/qita.html" method="post" target="nm_iframe"  enctype="multipart/form-data"> 
+                  <div class="layui-form-item layui-row"> <label class="layui-form-label">图片</label>
+                    <div class="layui-input-block"> 
+                      <input type="file" class=" layui-col-xs2 layui-col-sm2" id="test1" style="margin-top:5px;">
+                      </input> </div>
+                  </div>
                   <div class="layui-form-item layui-row"> <label class="layui-form-label">标题</label>
                     <div class="layui-input-block"> <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input layui-col-xs11 layui-col-sm11"> </div>
                   </div>
@@ -64,31 +62,32 @@
                     </div>
                   </div>
                   <div class="layui-form-item">
-                    <div class="layui-input-block"> 
-                    	<button type="submit" id="kkup">立即提交</button>
-                    	<!--<button class="layui-btn" type="submit" lay-submit lay-filter="formDemo">立即提交</button>--> 
-                    	<button type="reset" class="layui-btn layui-btn-primary">重置</button> </div>
+                    <div class="layui-input-block"> <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button> <button type="reset" class="layui-btn layui-btn-primary">重置</button> </div>
                   </div>
                 </form>
+                <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
               </div>
-              <button type="button" class="layui-btn" id="abc">
-							  <i class="layui-icon">&#xe67c;</i>上传图片
-							</button>
-							<button class="layui-btn test" lay-data="{url: './upload/'}">上传图片</button>
-							<button class="layui-btn test" lay-data="{url: './Public/img/1.jpg', accept: 'file'}">上传文件</button>
+              <div class="layui-tab-item"></div>
+              <div class="layui-tab-item"></div>
             </div>
           </div>
         </div>
       </div>
       <div class="layui-footer">底部固定区域 </div>
     </div>
+
+
+
+
     <script src="../../../Public/js/layui.js"></script>
     <script>
+      //JavaScript代码区域
       layui.use('element', function() {
         var element = layui.element;
       });
       layui.use('form', function() {
         var form = layui.form;
+        //监听提交
         form.on('submit(formDemo)', function(data) {
           layer.msg(JSON.stringify(data.field));
           return false;
@@ -98,6 +97,5 @@
     <script type="text/javascript">
       var um = UM.getEditor('myEditor');
     </script>
-    
   </body>
 </html>

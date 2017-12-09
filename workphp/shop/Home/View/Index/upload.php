@@ -20,7 +20,7 @@ if($_FILES["upfile"]["name"]){
 			$imgType = array_pop($arr);
 			$imgName = time().rand(0,10).".".$imgType;
 			$upfil="uploads/".$imgName;
-			if(move_uploaded_file($filetmp,"../../../uploads/".$imgName)){
+			if(move_uploaded_file($filetmp,"./Public/uploadss/".$imgName)){
 				echo "上传成功！";	
 			};
 		}	
