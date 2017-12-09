@@ -5,8 +5,6 @@ use Think\Controller;
 class UserController extends Controller{
 	public function login(){
 		$this -> display();
-		$this -> display('register');
-		$this -> display('Index/index');
 	}
 
 	function register(){
