@@ -11,9 +11,13 @@
   <frame name=head src="/shop/index.php/Admin/Index/head.html" frameborder=0 noresize scrolling=no>
     <frameset cols="170, *">
       <frame name=left src="/shop/index.php/Admin/Index/left.html" frameborder=0 noresize />
+<<<<<<< HEAD
       <frame name=right src="/shop/index.php/Admin/Index/right.html" frameborder=0 noresize scrolling=yes /> 
   	</frameset>
   </frame>
+=======
+      <frame name=right src="/shop/index.php/Admin/Index/right.html" frameborder=0 noresize scrolling=yes /> </frameset>
+>>>>>>> 393f540467455695b3e0b00f07e4f130c5406e97
 </frameset>
 <noframes> </noframes>
 </html>

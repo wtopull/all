@@ -22,8 +22,11 @@ class GoodsController extends Controller{
 			//把获得的信息传递给模板使用
 			$this -> assign('info',$info);
 //			var_dump($info);
+<<<<<<< HEAD
 		
 		
+=======
+>>>>>>> 393f540467455695b3e0b00f07e4f130c5406e97
 		$this -> display();
 	}
 	//添加商品
@@ -39,7 +42,10 @@ class GoodsController extends Controller{
 		);
 		$z = $cat -> add($arr);
 		dump($z);*/
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 393f540467455695b3e0b00f07e4f130c5406e97
 		//上传
 		if(!empty($_POST)){
 			
@@ -56,6 +62,7 @@ class GoodsController extends Controller{
 				$shuju = $goods -> create();
 				$z = $goods -> add($shuju);
 				dump($up->getError());
+<<<<<<< HEAD
 				
 				dump($z);
 			
@@ -67,6 +74,12 @@ class GoodsController extends Controller{
 			
 		}
 		
+=======
+				dump($z);
+			}
+			exit;
+		}
+>>>>>>> 393f540467455695b3e0b00f07e4f130c5406e97
 		$this -> display();
 	}
 	//删除商品

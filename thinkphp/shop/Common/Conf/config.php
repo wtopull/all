@@ -23,5 +23,9 @@ return array(
 //		'left_delimiter'	=>'<@@',
 //		'right_delimiter'	=>'@@>',
 //	),
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 393f540467455695b3e0b00f07e4f130c5406e97
 );

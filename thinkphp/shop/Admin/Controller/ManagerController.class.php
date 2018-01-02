@@ -1,6 +1,7 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
+<<<<<<< HEAD
 use Think\Verify;//验证码
 class ManagerController extends Controller{
 	public function login(){
@@ -52,4 +53,12 @@ class ManagerController extends Controller{
     $very -> entry();//输出验证码
     $this ->display();
   }
+=======
+
+class ManagerController extends Controller{
+	public function login(){
+		
+		$this ->display();
+	}
+>>>>>>> 393f540467455695b3e0b00f07e4f130c5406e97
 }

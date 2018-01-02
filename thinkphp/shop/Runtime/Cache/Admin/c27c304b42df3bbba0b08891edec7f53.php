@@ -9,7 +9,11 @@
       <td width=260><img height=56 src="<?php echo ADMIN_IMG_URL; ?>header_left.jpg" width=260></td>
       <td style="font-weight: bold; color: #fff; padding-top: 20px" align=middle>当前用户：admin &nbsp;&nbsp;
         <a style="color: #fff" href="" target=main>修改口令</a> &nbsp;&nbsp;
+<<<<<<< HEAD
         <a style="color: #fff" onclick="if (confirm('确定要退出吗？')) return true; else return false;" href="/shop/index.php/Admin/Manager/logout" target=_top>退出系统</a>
+=======
+        <a style="color: #fff" onclick="if (confirm('确定要退出吗？')) return true; else return false;" href="" target=_top>退出系统</a>
+>>>>>>> 393f540467455695b3e0b00f07e4f130c5406e97
       </td>
       <td align=right width=268><img height=56 src="<?php echo ADMIN_IMG_URL; ?>header_right.jpg" width=268></td>
     </tr>
