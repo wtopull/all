@@ -9,13 +9,13 @@ Vue.use(Router)
 	new Router({
 	  routes: [{
 	    path: '/',
-	    name: 'HelloWorld',
-	    component: HelloWorld
-	  }
-	  // {
-	  //   path: '/cart',
-	  //   name: 'cart',
-	  //   component: cart
-	  // }
+	    name: 'shopping',
+	    component: shopping
+	  },
+	   {
+	     path: '/cart',
+	     name: 'cart',
+	     component: cart
+	   }
 	  ]
 	})

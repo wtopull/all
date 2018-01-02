@@ -11,7 +11,9 @@
   <frame name=head src="/shop/index.php/Admin/Index/head.html" frameborder=0 noresize scrolling=no>
     <frameset cols="170, *">
       <frame name=left src="/shop/index.php/Admin/Index/left.html" frameborder=0 noresize />
-      <frame name=right src="/shop/index.php/Admin/Index/right.html" frameborder=0 noresize scrolling=yes /> </frameset>
+      <frame name=right src="/shop/index.php/Admin/Index/right.html" frameborder=0 noresize scrolling=yes /> 
+  	</frameset>
+  </frame>
 </frameset>
 <noframes> </noframes>
 </html>

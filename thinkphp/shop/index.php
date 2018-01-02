@@ -15,7 +15,8 @@
 		dump($info);
 		echo "</pre>";
 	}
-	//引入框架的接口文件
+
+	
 	include("../ThinkPHP/ThinkPHP.php");
 
 
